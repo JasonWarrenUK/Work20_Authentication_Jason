@@ -37,10 +37,10 @@ async function userOutput(user) {
 }
 
 async function logUser(user) {
-	const output = await userOutput(user);
-	console.group(`=== ${output.userName} ===`);
-	console.log(`Pass Text: ${output.passText}`);
-	console.log(`Pass Hash: ${output.passHash}`);
+	const details = await userOutput(user);
+	console.group(`=== ${details.userName} ===`);
+	console.log(`Pass Text: ${details.passText}`);
+	console.log(`Pass Hash: ${details.passHash}`);
 	console.groupEnd();
 }
 
@@ -52,5 +52,29 @@ async function logUserAll() {
 	console.groupEnd();
 }
 
-logUserAll()
-	.catch(console.error);
+async function testHash(user) {
+	const details = await userOutput(user);
+	console.group(`=== ${details.userName} ===`);
+	const hash = await bcrypt.hash(details.passText, 12);
+	const correctResult = await bcrypt.compare(details.passText, hash);
+	const incorrectResult = await bcrypt.compare("incorrect", hash);
+	console.log(`${details.passText}: ${correctResult}`);
+	console.log(`derp: ${incorrectResult}`);
+	console.groupEnd();
+}
+
+async function testHashAll() {	
+	console.group("=== Test Hash ===");
+	for (const user in users) {
+		await testHash(user);
+	}
+	console.groupEnd();
+}
+
+async function runAll() {
+	await logUserAll();
+	console.log(); // Add a blank line for separation
+	await testHashAll();
+}
+
+runAll().catch(console.error);
