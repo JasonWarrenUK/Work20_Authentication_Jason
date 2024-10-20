@@ -1,20 +1,21 @@
 const crypto = require("node:crypto");
 
-const pass = {
-	user1: "password1",
-	user2: "password2",
-}
-
-const salt = {
-	user1: "salt1",
-	user2: "salt2",
+const plain = {
+	pass: {
+		user1: "password1",
+		user2: "password2",
+	},
+	salt: {
+		user1: "salt1",
+		user2: "salt2",
+	}
 }
 
 function userInput(user) {
 	return {
 		userName: user,
-		password: pass[user],
-		salt: salt[user],
+		password: plain.pass[user],
+		salt: plain.salt[user],
 	};
 }
 
@@ -49,7 +50,7 @@ function userLog(user) {
 	return;
 }
 
-console.group("=== Passwords ===");
+console.group("=== Salt Hash ===");
 	userLog("user1");
 	userLog("user2");
 console.groupEnd();
