@@ -1,4 +1,3 @@
-// const bcrypt = require("bcryptjs");
 import bcrypt from "bcryptjs";
 import { plain, userInput, users } from "./inputs.js";
 
@@ -51,7 +50,7 @@ async function testHashAll() {
 
 async function runAll() {
 	await logUserAll();
-	console.log(); // Add a blank line for separation
+	console.log();
 	await testHashAll();
 }
 
