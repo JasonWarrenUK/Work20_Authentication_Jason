@@ -1,0 +1,13 @@
+{
+  "name": "fac-wor20-auth",
+  "version": "1.0.0",
+  "description": "Learn how to safely store passwords, and identify returning users with cookies and sessions",
+  "main": "index.js",
+	"type": "module",
+  "scripts": {
+    "test": "test",
+		"dev": "node hash/bcrypt.js"
+  },
+  "author": "Jason Warren",
+  "license": "ISC"
+}

@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"name": "notes",
+			"path": "../../../notes"
+		},
+		{
+			"name": "Progress Log",
+			"path": "../Progress Log"
+		},
+		{
+			"name": "Workshop 20 • Authentication",
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {},
+		"editor.tabSize": 2,
+		"conventionalCommits.scopes": [
+			"scripts",
+			"db queries",
+			"structure",
+			"log",
+			"README",
+			"gitignore"
+		]
+	}
+}
