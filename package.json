@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "Learn how to safely store passwords, and identify returning users with cookies and sessions",
   "main": "index.js",
-	"type": "module",
+  "type": "module",
   "scripts": {
-    "test": "test",
-		"dev": "node hash/bcrypt.js"
+    "dev": "node index.js",
+    "dev:hash": "node hash/bcrypt.js",
+    "test": "test"
   },
   "author": "Jason Warren",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.1"
+  }
 }
